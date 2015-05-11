@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-    private static $dbName = 'u879518409_year' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'u879518409_year';
-    private static $dbUserPassword = 'year2014';
+    private static $dbName = 'yearbook2db';
+    private static $dbHost = '104.41.1.8';
+    private static $dbUsername = 'bd37c453562cbb';
+    private static $dbUserPassword = '97020585';
      
     private static $cont  = null;
      
@@ -17,14 +17,19 @@ class Database
        // One connection through whole application
        if ( null == self::$cont )
        {     
-        try
-        {
-          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 
-        }
-        catch(PDOException $e)
-        {
-          die($e->getMessage()); 
-        }
+        //try
+        //{
+          //self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 
+            self:$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
+            if (!$link) {
+                die('Não foi possível conectar: ' . mysql_error());
+            }    
+            
+        //}
+        //catch(PDOException $e)
+        //{
+          //die($e->getMessage()); 
+        //}
        }
        return self::$cont;
     }
