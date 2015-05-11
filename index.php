@@ -98,7 +98,6 @@
             <div id="users">
             <ul id="menu">
                 <?php
-                    <?php
 
 $host = "104.41.1.8";
 $username = "bd37c453562cbb";
@@ -129,7 +128,6 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn); 
 ?> 
-                ?>
                 <?php                    
                     $pdo = Database::connect();
                     $sql = 'SELECT * FROM participantes ORDER BY nomeCompleto';
