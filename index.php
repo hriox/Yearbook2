@@ -113,7 +113,7 @@ if (!$conn) {
 }
 
 $sql = "SELECT * FROM participantes WHERE nomeCompleto LIKE '%".$filtro."%' ORDER BY nomeCompleto";
-$result = mysqli_query($conn, $sql
+$result = mysqli_query($conn, $sql;
 
 $result = mysqli_query($conn, $sql);
 
