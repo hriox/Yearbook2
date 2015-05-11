@@ -20,8 +20,8 @@ class Database
         //try
         //{
           //self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 
-            self:$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
-            if (!$link) {
+            self::$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
+            if (!self::$cont) {
                 die('Não foi possível conectar: ' . mysql_error());
             }    
             
