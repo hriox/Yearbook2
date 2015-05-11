@@ -98,7 +98,39 @@
             <div id="users">
             <ul id="menu">
                 <?php
-                    echo '<div><p>######</p></div>'; 
+                    <?php
+
+$host = "104.41.1.8";
+$username = "bd37c453562cbb";
+$password = "97020585";
+$dbname = "yearbook2db";
+
+// Create connection
+$conn = mysqli_connect($host, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM participantes WHERE nomeCompleto LIKE '%".$filtro."%' ORDER BY nomeCompleto";
+$result = mysqli_query($conn, $sql
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "login: ".$row["login"]."<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+
+mysqli_close($conn); 
+?> 
+                ?>
+                <?php                    
                     $pdo = Database::connect();
                     $sql = 'SELECT * FROM participantes ORDER BY nomeCompleto';
                     if (empty($_POST)) {
