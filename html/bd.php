@@ -17,19 +17,19 @@ class Database
        // One connection through whole application
        if ( null == self::$cont )
        {     
-        //try
-        //{
-          //self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 
-            self::$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
-            if (!self::$cont) {
-                die('Não foi possível conectar: ' . mysql_error());
-            }    
-            
-        //}
-        //catch(PDOException $e)
-        //{
-          //die($e->getMessage()); 
-        //}
+            try
+            {
+              self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword); 
+              self::$cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                //self::$cont = mysqli_connect(self::$dbHost, self::$dbUsername, self::$dbUserPassword, self::$dbName);
+                //if (!self::$cont) {
+                    //die('Não foi possível conectar: ' . mysql_error());
+                //}
+            }
+            catch(PDOException $e)
+            {
+              die($e->getMessage()); 
+            }
        }
        return self::$cont;
     }

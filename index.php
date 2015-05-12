@@ -54,7 +54,6 @@
                         } else {
                             $pdo = Database::connect();
                             $sql = "SELECT * FROM participantes WHERE login = '".$_SESSION['login']."'";
-                            //foreach (mysqli_query($sql) as $usuario) {
                             foreach ($pdo->query($sql) as $usuario) {
                                 ?>
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -72,7 +71,6 @@
                                 <?php
                                 break;
                             }
-                            //mysqli_close($conn);
                             Database::disconnect();
                             ?>
                             <?php
@@ -98,7 +96,7 @@
             <div id="users">
             <ul id="menu">
                 <?php
-
+/*
 $host = "104.41.1.8";
 $username = "bd37c453562cbb";
 $password = "97020585";
@@ -126,6 +124,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 mysqli_close($conn); 
+*/
 ?> 
                 <?php                    
                     $pdo = Database::connect();
